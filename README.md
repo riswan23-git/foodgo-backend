@@ -46,6 +46,8 @@ Berikut adalah hasil visualisasi metrik cakupan kode program backend yang berhas
 2. **Efektivitas Pengujian Skenario:** Sebanyak 20 *test case* yang mencakup jalur sukses (*happy path*) serta jalur kegagalan (*error/edge case*) pada fungsi autentikasi login, pengelolaan menu kantin, dan manajemen transaksi pemesanan (*orders checkout*) telah berhasil dieksekusi dengan status kelulusan mutlak 100% (*Passed*).
 3. **Keandalan Deteksi Regresi:** Pengujian regresi terbukti sangat peka terhadap perubahan struktural kode yang tidak disengaja. Melalui simulasi kesalahan tak sengaja dengan mengubah respons status kode sukses pada rute pembuatan menu dari 201 menjadi 200, sistem secara instan menggagalkan alur pipa integrasi (*Failing Test*), mendeteksi anomali fungsional dalam hitungan detik, dan memberikan jaring pengaman penuh sebelum kode cacat masuk ke lingkungan produksi.
 
+## Berikut adalah bukti tangkapan layar saat sistem berhasil mendeteksi kerusakan kode (Failing Test due to Regression Bug):
+![Regression fail](./regression-fail.png)
 ```
 
 ```
