@@ -73,7 +73,7 @@ describe('REST API Comprehensive Regression Test Suite - Foodgo Backend', () => 
   test('POST /api/menu - Harus berhasil menambahkan data menu baru', async () => {
     const newMenu = { title: 'Nasi Goreng Kantin', price: 15000, stock: 10, image: null };
     const response = await request(app).post('/api/menu').set('Authorization', dummyToken).send(newMenu);
-    expect([200, 201]).toContain(response.statusCode);
+    expect(response.statusCode).toBe(201);
     createdId = response.body.id;
   });
 
