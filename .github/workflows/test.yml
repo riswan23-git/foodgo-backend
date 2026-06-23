@@ -1,0 +1,34 @@
+name: REST API Regression Test Suite CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  execute-automated-testing:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - name: Checkout Repository Berkas Kode
+      uses: actions/checkout@v3
+
+    - name: Inisialisasi Environment Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Instalasi Dependensi Library Pengujian
+      run: npm install
+
+    - name: Eksekusi Automated Regression Test Suite & Coverage Metrics
+      run: npm run test:coverage
+      env:
+        NODE_ENV: test
+        DB_DIALECT: mysql
